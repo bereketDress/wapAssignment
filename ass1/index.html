@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+</head>
+
+<body>
+
+    <!-- Header: top section -->
+    <!--h1 for main title-->
+    <!-- <a>: anchor(clickable link) -->
+    <!--#= same page jump-->
+    <header>
+        <h1>Welcome to My Website</h1> 
+        <p>Hello! This is my personal website created using HTML</p>
+        
+        <nav>
+            <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">Work Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+            </ul>   
+         </nav> 
+
+    </header>   
+
+    <!-- Main Content: h2 for main section-->
+
+    <main>
+        <!-- introduction section: id links all section type-->
+
+        <section id="about">
+            <h2>About Me</h2>
+            <img src="coder.jpg" alt="My favorite photo" width="300">
+            <p>
+                My previous experience is related to life sciences, but my favorite field of study has always been computer science.
+                Unfortunately, I did not get the opportunity to continue in this field earlier. Now, however, it is time for me
+                to pursue my passion. After graduation, my goal is to build a career in software development and contribute to
+                creating useful and innovative software solutions.
+            </p>
+        </section>
+
+    <!-- Work Experience Section -->
+        <section id="experience">
+            <h2>Work Experience</h2>
+
+            <ul>
+                <li>Studied and worked in Life Sciences</li>
+                <li>Developed strong research and analytical skills</li>
+                <li>Learning HTML and web development</li>
+                <li>Interested in software development projects</li>
+                <li>Passionate about solving problems using technology</li>
+            </ul>
+        </section>
+
+        <!-- Contact Form Section: form: wraps them into one unit-->
+        <!--label: visible text-->
+        <!--id: connects label to input-->
+        <!--name: key used when sending data-->
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+
+            <form>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="message">Message:</label><br>
+                <!-- text area for multiple lines of text-->
+                 <!-- input for single line of text-->
+                <textarea id="message" name="message" rows="5" cols="30"></textarea><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer: copy= ©(copy right symbol)-->
+    <footer>
+        <p>&copy; 2026 My Personal Website. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
