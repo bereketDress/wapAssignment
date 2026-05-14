@@ -2,50 +2,48 @@ import { useState } from "react"
 import { v4 as uuidv4 } from "uuid";
 import { Book } from "./BookList";
 
-/* useState:Store input values, like a notebook inside the component
- useState:lets React “remember” what the user typed */
+/* add: is function executed inside handleSubmit to save the book */
+/* useState: it is form & Stores live input values */
 
 interface FormProps {
-  onAdd: (book: Book) => void;
+  add: (b: Book) => void;// is function & need return type
 }
 
-export function BookForm({ onAdd }: FormProps) {
+export function BookForm({ add }: FormProps) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [year, setYear] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
+  /* Pack state values into a single Book object, send it up */
   function handleSubmit() {
-    onAdd({
-      id: uuidv4(),
+    add({
+      id: uuidv4(), // Generates unique ID
       title,
       author,
-      year: Number(year),
+      year: Number(year), // Converts string to number
       imageUrl,
     });
 
-    /* set clears the form coz set value empty="" */
-
+    /* Clears out input fields by resetting state to empty strings */
     setTitle("");
     setAuthor("");
     setYear("");
     setImageUrl("");
   }
 
-/* e.target.value = what user types in input e.preventDefault: Stops page reload to keep data*/
-  
-return (
+  return (
     <form
       className="p-4 m-2 border-4 flex flex-col gap-2 border-green-500 rounded-2xl"
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit();
+      onSubmit={(e) => {     /* 1st: Browser triggers form submit event */
+        e.preventDefault();   /* 2nd: Blocks page reload to protect state memory */
+        handleSubmit();      /* 3rd: Packs data object and resets form */
       }}>
 
       <input
         placeholder="Title"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) => setTitle(e.target.value)} /* e.target.value = current text in box */
         required
       />
 
@@ -75,9 +73,6 @@ return (
   );
 }
 
-
-
-
-
-
-
+// Summary Checklist:
+// form  ----> onSubmit (Handles the save & blocks reload)
+// input ----> onChange (Saves what user types into React state)
